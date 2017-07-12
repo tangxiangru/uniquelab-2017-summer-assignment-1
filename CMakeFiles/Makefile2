@@ -138,8 +138,8 @@ clean: CMakeFiles/priority_queue.dir/clean
 
 # All Build rule for target.
 CMakeFiles/pq_test.dir/all: CMakeFiles/priority_queue.dir/all
-CMakeFiles/pq_test.dir/all: googletest/googlemock/gtest/CMakeFiles/gtest.dir/all
 CMakeFiles/pq_test.dir/all: googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/all
+CMakeFiles/pq_test.dir/all: googletest/googlemock/gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f CMakeFiles/pq_test.dir/build.make CMakeFiles/pq_test.dir/depend
 	$(MAKE) -f CMakeFiles/pq_test.dir/build.make CMakeFiles/pq_test.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/tangxiangru/code/uniquelab-2017-summer-assignment-1/CMakeFiles --progress-num=12,13 "Built target pq_test"
@@ -177,8 +177,8 @@ clean: CMakeFiles/pq_test.dir/clean
 
 # All Build rule for target.
 CMakeFiles/set_test.dir/all: CMakeFiles/set.dir/all
-CMakeFiles/set_test.dir/all: googletest/googlemock/gtest/CMakeFiles/gtest.dir/all
 CMakeFiles/set_test.dir/all: googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/all
+CMakeFiles/set_test.dir/all: googletest/googlemock/gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f CMakeFiles/set_test.dir/build.make CMakeFiles/set_test.dir/depend
 	$(MAKE) -f CMakeFiles/set_test.dir/build.make CMakeFiles/set_test.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/tangxiangru/code/uniquelab-2017-summer-assignment-1/CMakeFiles --progress-num=18,19 "Built target set_test"
