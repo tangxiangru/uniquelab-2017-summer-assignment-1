@@ -20,7 +20,6 @@ void Set::erase(const T& key) {
 TNode* Set::del(TNode* tree, T key) {
     if (tree == NULL)
         return NULL;
-    /* 向左 */
     if (tree->key > key) {
         if (tree->left != NULL && !isred(tree->left) && !isred(tree->left->left))
             tree = moveleft(tree);
@@ -39,7 +38,6 @@ TNode* Set::del(TNode* tree, T key) {
 
         if (tree->key < key)
             tree->right = del(tree->right, key);
-        /* 若相等 */
         else {
             tree->key = findMin(tree->right)->key;
             tree->right = deleteMin(tree->right);
