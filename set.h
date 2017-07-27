@@ -1,74 +1,83 @@
-#ifndef MYSET
-#define MYSET
 #include <iostream>
-#include <algorithm>
+using namespace std;
+
+static bool RED = false;
+static bool BLACK = true;
 using T = double;
-using std::cout;
-using std::endl;
-enum RBTColor {BLACK, RED};
-class TNode {
+using RBTColor = bool;
+
+class RBTNode{
     public:
-        bool color;
-        T key;
-        TNode* p;
-        TNode* left;
-        TNode* right;
-    //构造函数
-        TNode(RBTColor c, T value, TNode *l, TNode *r) :
-        color(c), key(value), left(l), right(r) {};
-        //TNode();
-      //  TNode(const Type& key);
-      //  int compare(const Type& t);
+        bool color;    
+        T key;           
+        RBTNode *left;    
+        RBTNode *right;   
+        RBTNode *parent; 
+
+        RBTNode(T _key, bool _color, RBTNode* _parent, RBTNode *_left, RBTNode *_right):
+            key(_key),color(_color),parent(_parent),left(_left),right(_right) {}
+		RBTNode(): color(RED), left(NULL), right(NULL), parent(NULL){}
+};
+
+class RBTree {
+    private:
+        RBTNode* mRoot;    
+        int treeNode;
+    public:
+        RBTree();
+        ~RBTree();
+
+        int size(){return treeNode;}
+        bool empty(){return mRoot == NULL;}
+        RBTNode* search(T key);
+        T minimum();
+        T maximum();
+        void insert(T key);
+        void remove(T key);
+        void destroy();
+    private:
+        RBTNode* search(RBTNode* x, T key) const;
+        RBTNode* minimum(RBTNode* tree);
+        RBTNode* maximum(RBTNode* tree);
+
+        
+        void leftRotate(RBTNode* &root, RBTNode* x);
+        void rightRotate(RBTNode* &root, RBTNode* y);
+        void insert(RBTNode* &root, RBTNode* node);
+        void insertFixUp(RBTNode* &root, RBTNode* node);
+        void remove(RBTNode* &root, RBTNode *node);
+        void removeFixUp(RBTNode* &root, RBTNode *node, RBTNode *parent);
+        void destroy(RBTNode* &tree);
+
+        RBTNode* rb_parent(RBTNode* node){return node->parent;}
+        bool rb_color(RBTNode* node){return node->color;}
+        bool rb_is_red(RBTNode* node){return node->color == RED;}
+        bool rb_is_black(RBTNode* node){return node->color == BLACK;}
+        void rb_set_black(RBTNode* node){node->color = BLACK;}
+        void rb_set_red(RBTNode* node){node->color = RED;}
+        void rb_set_parent(RBTNode* node, RBTNode* p){node->parent = p;}
+        void rb_set_color(RBTNode* node, RBTColor c){node->color = c;}
 };
 
 
-class RBTree{
+class Set
+{
 public:
-	TNode* root;
-	TNode* nil;
-public:
-	RBTree();
-	~RBTree();
-	//TNode* rb_search(const Type& key);
-	//void rb_insert(TNode<Type>* tnode);
-	TNode* rb_delete(TNode* tnode);
-	//void inorder(TNode* node,Type a[]);
+    void insert(const T&);
+    void erase(const T&);
+    void clear();
+    void deleteMin();
+    void deleteMax();
+    T findMin();
+    T findMax();
+    int count(const T&);
+    bool empty();
+    bool contain(const T&);
+    int size();
 private:
-	TNode* min(TNode* x);
-	TNode* max(TNode* x);
-	TNode* successor(TNode* x);
-	void left_rotate(TNode* x);
-	void right_rotate(TNode* x);
-	void rb_insert_fixup(TNode* z);
-	void rb_delete_fixup(TNode* z);
-	void freeTree(TNode* node);
+    RBTree tree;
 };
-#endif
 
 
-class Set {
-public:
-  void insert(const T& element);
-  void erase(const T& element);
-  void clear();
-  int count(const T& element) const;
-  bool empty();
-  size_t size();
-  ~Set() {delete root;}
-private:
-    TNode* root;
-    int c_size = 0;
-    TNode* ins(TNode* tree, T key);
-    TNode* del(TNode* tree, T key);
-    void clear(TNode* tree);
-    TNode* find(TNode* tree, T key) const;
-    bool isred(TNode* node);
-    TNode* findMin(TNode* tree);
-    TNode* left(TNode* node);
-    TNode* right(TNode* node);
-    TNode* flip(TNode* node);
-    TNode* fix_up(TNode* node);
-    TNode* moveleft(TNode* tree);
-    TNode* moveright(TNode* tree);
-    TNode* deleteMin(TNode* tree);
-};
+
+

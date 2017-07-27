@@ -37,15 +37,11 @@ gtest/gtest_pred_impl.h
 /Users/tangxiangru/code/uniquelab-2017-summer-assignment-1/set.h
 iostream
 -
-algorithm
--
 
 /Users/tangxiangru/code/uniquelab-2017-summer-assignment-1/set_test.cpp
 set
 -
 random
--
-iostream
 -
 include/gtest/gtest.h
 /Users/tangxiangru/code/uniquelab-2017-summer-assignment-1/include/gtest/gtest.h
