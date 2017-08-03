@@ -459,5 +459,22 @@ void RBTree::destroy()
 
 
 
-
+/*void preOrder(RBTNode* node)
+{
+    if(node == nullptr)
+        return;
+    cout << node->val <<endl;
+    cout <<"left:"
+    if(node->left)
+        cout<<node->left->val<<endl;
+    else
+        cout<<"null"<<endl;
+    
+    cout<<"right:"
+    if(node->right)
+        cout<<node->right->val<<endl;
+    else
+        cout<<"null"<<endl;
+    preOrder(node->left);
+    preOrder(node->right);*/
 
